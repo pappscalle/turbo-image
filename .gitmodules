@@ -1,4 +1,0 @@
-[submodule "src/external"]
-	path = src/external
-	url = https://github.com/pappscalle/dos-tp-units.git
-	branch = main
