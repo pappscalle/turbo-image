@@ -2,18 +2,26 @@ program Runme;
 
 {$G+}
 
-uses crt, gfx;
+uses crt, gfx, pal, pcx;
+
+var 
+  Img : PCXImage;
+  i: word;
+
 
 begin
 
-  SetVideoMode($13);
+  LoadPCX('test.pcx', @Img);
 
-  repeat
+  OpenGraphics;
 
-    SetPixel(random(320), random(200), random (256));
+  SetPalette(Img.palette);
 
-  until KeyPressed;
+  move(Img.data^, Mem[$A000:0], Img.width * Img.height);
 
-  SetVideoMode($03);
+  repeat until KeyPressed;
+
+  CloseGraphics;
+  freePCX(@Img);
 
 end.
