@@ -91,7 +91,7 @@ var
     header : PCXHeader;
     f : File;
     bytevalue: byte;
-    bytesRead : integer;
+    bytesRead : word;
     
     totalFileSize: longint;
     headerSize: integer;
@@ -158,6 +158,8 @@ begin
 
     if bytesRead <> encodedSize then
     begin
+        writeLn('Error: Could not read PCX encoded data from file: ', bytesRead);
+        writeLn('Error: Could not read PCX encoded data from file: ', encodedSize);
         writeln('Error: Could not read PCX data from file: ' + filename);
         Close(f);
         Halt(1);
