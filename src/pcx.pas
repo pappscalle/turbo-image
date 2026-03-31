@@ -12,6 +12,7 @@ type
     PCXImage = record
        width: word;
        height: word;
+       size: word;
        data: PByte;
        palette: Palette;
     end;   
@@ -193,6 +194,7 @@ begin
     { Fill PCXImage record }
     pcx^.width := header.xMax - header.xMin + 1;
     pcx^.height := header.yMax - header.yMin + 1;
+    pcx^.size := decodedSize; { width * height }
     pcx^.data := decodedData;
     pcx^.palette := pall;
 
