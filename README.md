@@ -1,7 +1,7 @@
 ## turbo-image
 
 Load and display PCX-files
-
+wip: sprite loader 
 
 ### Usage
 
